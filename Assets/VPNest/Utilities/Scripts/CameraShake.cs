@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace VP.Nest.Utilities
 {
 	[RequireComponent(typeof(CinemachineVirtualCamera))]
-	public class CameraShake : MonoBehaviour
+	public class CameraShake : Singleton<CameraShake>
 	{
 		private CinemachineBasicMultiChannelPerlin perlin;
 

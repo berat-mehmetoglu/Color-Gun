@@ -1,5 +1,6 @@
 using UnityEngine;
 using VP.Nest.UI;
+using VP.Nest.Utilities;
 
 namespace _Main.Scripts.GamePlay
 {
@@ -15,7 +16,14 @@ namespace _Main.Scripts.GamePlay
         private float _currentTime;
 
         private bool _haveRay;
-        
+
+        private Gun _gun;
+
+        private void Awake()
+        {
+            _gun = GetComponent<Gun>();
+        }
+
         private void OnEnable()
         {
             UIManager.Instance.InGameUI.OnLevelStart += () =>
@@ -64,6 +72,8 @@ namespace _Main.Scripts.GamePlay
             
             _haveShoot = false;
             
+            ShootBullet(rayTarget.forward);
+
             var ray = new Ray (rayTarget.position, rayTarget.forward);
 
             if (Physics.Raycast (ray, out var hit,Mathf.Infinity))
@@ -82,6 +92,38 @@ namespace _Main.Scripts.GamePlay
                 
             }
             Debug.Log("Shoot");
+        }
+
+        private void ShootBullet(Vector3 direction)
+        {
+            CameraShake.Instance.Shake(0.5f,0.2f);
+            GunAnimation.Instance.DoAnimation();
+            
+            switch (_gun.MortyColor)
+            {
+                case MortyColor.Red:
+                    var obj1= AmmoCreator.Instance.CreateRed();
+                    obj1.GetComponent<Rigidbody>().velocity = direction * 100f;
+                    break;
+                case MortyColor.Yellow:
+                    var obj2 = AmmoCreator.Instance.CreateYellow();
+                    obj2.GetComponent<Rigidbody>().velocity = direction * 100f;
+                    break;
+                case MortyColor.Blue:
+                    var obj3 = AmmoCreator.Instance.CreateBlue();
+                    obj3.GetComponent<Rigidbody>().velocity = direction * 100f;
+                  
+                    break;
+                case MortyColor.Orange:
+                    var obj4 = AmmoCreator.Instance.CreateOrange();
+                    obj4.GetComponent<Rigidbody>().velocity = direction * 100f;
+                    break;
+                case MortyColor.Purple:
+                    var obj5 = AmmoCreator.Instance.CreatePurple();
+                    obj5.GetComponent<Rigidbody>().velocity = direction * 100f;
+                    break;
+               
+            }
         }
     }
 }

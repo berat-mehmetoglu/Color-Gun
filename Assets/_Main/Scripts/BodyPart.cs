@@ -24,9 +24,9 @@ public class BodyPart : MonoBehaviour
 
 public enum MortyColor
 {
-    Blue,
-    Purple,
+    Red,
     Yellow,
-    Green,
-    Red
+    Blue,
+    Orange,
+    Purple,
 }

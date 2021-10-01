@@ -548,6 +548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 535154409}
   - component: {fileID: 535154412}
+  - component: {fileID: 535154410}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -569,6 +570,23 @@ Transform:
   m_Father: {fileID: 765848282}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &535154410
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535154408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!114 &535154412
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -792,6 +810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 765848282}
   - component: {fileID: 765848283}
+  - component: {fileID: 765848284}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -852,6 +871,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 535154409}
+--- !u!114 &765848284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765848281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e15afb9d2e040e698aff4d1e18a1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &767860819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,6 +1292,8 @@ GameObject:
   - component: {fileID: 826624288}
   - component: {fileID: 826624290}
   - component: {fileID: 826624289}
+  - component: {fileID: 826624291}
+  - component: {fileID: 826624292}
   m_Layer: 0
   m_Name: Rick
   m_TagString: Untagged
@@ -1376,6 +1409,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634240bd88e240a2a7a0e6382f1151e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &826624291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826624283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b9124013024f3e8d45b66c8e65f3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoPrefabs:
+  - {fileID: 6413467738220012275, guid: b5a561a09ecd44306b668319a9924ec6, type: 3}
+  - {fileID: 5471446128196639605, guid: 00266c812244242a3bc60de16f7f561d, type: 3}
+  - {fileID: 6556420453260954429, guid: c6e288463d33c4368ae06b2a8927e16a, type: 3}
+  - {fileID: 2085673395562032433, guid: 6eb561834fd834220bb94f0b9df551ba, type: 3}
+  - {fileID: 949055863179536864, guid: 0c0565c003a23428b9f3e736c230cbd3, type: 3}
+  shootTransform: {fileID: 893282139}
+--- !u!114 &826624292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826624283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c237c577e44a44e1bbb3e6e0ab084fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunTransform: {fileID: 171819437}
 --- !u!1 &893282138
 GameObject:
   m_ObjectHideFlags: 0

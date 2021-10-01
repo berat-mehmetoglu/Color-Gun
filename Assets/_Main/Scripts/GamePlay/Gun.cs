@@ -4,8 +4,7 @@ namespace _Main.Scripts.GamePlay
 { 
     public class Gun : MonoBehaviour
     {
-        public ColorType ColorType { get; set; }
-        
+        public MortyColor MortyColor { get; set; }
     }
 
     public enum ColorType

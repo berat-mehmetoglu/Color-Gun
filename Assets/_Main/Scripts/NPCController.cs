@@ -38,7 +38,8 @@ public class NPCController : MonoBehaviour
         }
     }
 
-    void OnDeathPart()
+    [ContextMenu("Death")]
+    public void OnDeathPart()
     {
         _deathPartCount++;
         if (_deathPartCount == 2)

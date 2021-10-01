@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Main.Scripts.GamePlay;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,7 +15,7 @@ public class NPCMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _targetTransform = DummyPlayer.Instance.transform;
+        _targetTransform = Gun.Instance.transform;
         _npcEvents = GetComponentInParent<NPCEvents>();
         _npcEvents.Fight += OnFight;
         _npcEvents.Death += OnDeath;

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace _Main.Scripts.GamePlay
 { 
-    public class Gun : MonoBehaviour
+    public class Gun : Singleton<Gun>
     {
         public MortyColor MortyColor { get; set; }
     }

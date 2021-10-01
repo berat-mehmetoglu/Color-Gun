@@ -69,7 +69,7 @@ namespace _Main.Scripts.GamePlay
 
         private void Shoot()
         {
-            
+            AnimatorController.Instance.RightAnim();
             _haveShoot = false;
             
             ShootBullet(rayTarget.forward);
@@ -83,11 +83,11 @@ namespace _Main.Scripts.GamePlay
                 //     //Execute morty collider
                 // }
                 
-                 if (hit.rigidbody && hit.rigidbody.TryGetComponent(out Test test))
+                 if (hit.rigidbody && hit.rigidbody.TryGetComponent(out BodyPart bd))
                 {
                     //Execute morty collider
-                    hit.rigidbody.AddForce(-hit.normal * 1000f);
-                    Debug.Log(test.name);
+                    hit.rigidbody.AddForce(-hit.normal * 100f);
+                    bd.OnShoot(_gun.MortyColor);
                 }
                 
             }

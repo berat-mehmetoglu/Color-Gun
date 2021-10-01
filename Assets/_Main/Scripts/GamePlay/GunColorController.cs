@@ -25,6 +25,7 @@ public class GunColorController : MonoBehaviour
             _textMeshPros[2].color = Color.white;
             _textMeshPros[3].color = Color.white;
             _textMeshPros[4].color = Color.white;
+            AnimatorController.Instance.LeftAnim();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -34,6 +35,7 @@ public class GunColorController : MonoBehaviour
             _textMeshPros[2].color = Color.white;
             _textMeshPros[3].color = Color.white;
             _textMeshPros[4].color = Color.white;
+            AnimatorController.Instance.LeftAnim();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -43,6 +45,7 @@ public class GunColorController : MonoBehaviour
             _textMeshPros[2].color = Color.green;
             _textMeshPros[3].color = Color.white;
             _textMeshPros[4].color = Color.white;
+            AnimatorController.Instance.LeftAnim();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
@@ -52,6 +55,7 @@ public class GunColorController : MonoBehaviour
             _textMeshPros[2].color = Color.white;
             _textMeshPros[3].color = Color.green;
             _textMeshPros[4].color = Color.white;
+            AnimatorController.Instance.LeftAnim();
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
@@ -61,6 +65,7 @@ public class GunColorController : MonoBehaviour
             _textMeshPros[2].color = Color.white;
             _textMeshPros[3].color = Color.white;
             _textMeshPros[4].color = Color.green;
+            AnimatorController.Instance.LeftAnim();
         }
     }
 }

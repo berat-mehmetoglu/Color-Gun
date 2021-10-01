@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using _Main.Scripts.GamePlay;
 using UnityEngine;
 using Random = System.Random;
 
@@ -19,7 +20,7 @@ public class NPCController : MonoBehaviour
     void Start()
     {
         _npcRenderer = GetComponentInChildren<NPCRenderer>().GetComponent<Renderer>();
-        _targetTransform = DummyPlayer.Instance.transform;
+        _targetTransform = Gun.Instance.transform;
         _npcEvents = GetComponent<NPCEvents>();
         _npcEvents.Death += OnDeathPart;
         
@@ -52,7 +53,7 @@ public class NPCController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print(other.name);
-        if (other.TryGetComponent(out DummyPlayer _))
+        if (other.TryGetComponent(out Gun _))
         {
             _npcEvents.InvokeFight();
             _mortyState = MortyState.Fight;
@@ -62,7 +63,7 @@ public class NPCController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         
-        if (other.TryGetComponent(out DummyPlayer _))
+        if (other.TryGetComponent(out Gun _))
         {
             _npcEvents.InvokeRun();
             _mortyState = MortyState.Run;

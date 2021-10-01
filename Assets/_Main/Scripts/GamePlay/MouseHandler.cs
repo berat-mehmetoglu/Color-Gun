@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using VP.Nest.UI;
 
 namespace _Main.Scripts.GamePlay
 {
@@ -15,10 +16,20 @@ namespace _Main.Scripts.GamePlay
         private Transform _cameraTransform;
         private Transform _rickTransform;
 
+        private bool _haveMouse;
+        
         private void Awake()
         {
             _rickTransform = transform;
             _cameraTransform = _rickTransform.GetChild(0);
+        }
+
+        private void OnEnable()
+        {
+            UIManager.Instance.InGameUI.OnLevelStart += () =>
+            {
+                _haveMouse = true;
+            };
         }
 
         private void Update()
@@ -28,6 +39,8 @@ namespace _Main.Scripts.GamePlay
 
         void MouseAiming()
         {
+            if(!_haveMouse) return;
+            
             // get the mouse inputs
             float y = Input.GetAxis("Mouse X") * turnSpeed;
             rotX += Input.GetAxis("Mouse Y") * turnSpeed;

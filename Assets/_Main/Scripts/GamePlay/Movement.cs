@@ -1,5 +1,6 @@
 using System.Timers;
 using UnityEngine;
+using VP.Nest.UI;
 
 public class Movement : MonoBehaviour
 {
@@ -10,8 +11,8 @@ public class Movement : MonoBehaviour
     private int _right;
     private int _up;
     private int _down;
-    
-   
+
+    private bool _haveMovement;
 
     
     private void Awake()
@@ -19,8 +20,17 @@ public class Movement : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    private void OnEnable()
+    {
+        UIManager.Instance.InGameUI.OnLevelStart += () =>
+        {
+            _haveMovement = true;
+        };
+    }
+    
     private void Update()
     {
+        if(!_haveMovement) return;
        
         if (Input.GetKey(KeyCode.A))
         {
@@ -65,6 +75,8 @@ public class Movement : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if(!_haveMovement) return;
+        
         _rb.velocity = (-transform.right * _left + transform.right * _right +
                         transform.forward * _up + (-transform.forward) * _down) *
                        (movementSpeed * Time.fixedDeltaTime);

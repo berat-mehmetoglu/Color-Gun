@@ -1,10 +1,11 @@
 using UnityEngine;
+using VP.Nest.UI;
 
 namespace _Main.Scripts.GamePlay
 {
     public class GunRaycaster : MonoBehaviour
     {
-        [SerializeField] private Transform shootTarget;
+        [SerializeField] private Transform rayTarget;
         
         [SerializeField] private float reloadTime;
         
@@ -12,9 +13,21 @@ namespace _Main.Scripts.GamePlay
         private bool _haveShoot;
 
         private float _currentTime;
+
+        private bool _haveRay;
+        
+        private void OnEnable()
+        {
+            UIManager.Instance.InGameUI.OnLevelStart += () =>
+            {
+                _haveRay = true;
+            };
+        }
         
         public void Update()
         {
+            if(!_haveRay) return;
+            
             //Shoot
             if (Input.GetMouseButtonDown(0) && !_reload)
             {
@@ -37,6 +50,8 @@ namespace _Main.Scripts.GamePlay
 
         private void FixedUpdate()
         {
+            if(!_haveRay) return;   
+            
             //Execute Shoot
             if (_haveShoot)
             {
@@ -46,9 +61,10 @@ namespace _Main.Scripts.GamePlay
 
         private void Shoot()
         {
+            
             _haveShoot = false;
             
-            var ray = new Ray (shootTarget.position, shootTarget.forward);
+            var ray = new Ray (rayTarget.position, rayTarget.forward);
 
             if (Physics.Raycast (ray, out var hit,Mathf.Infinity))
             {

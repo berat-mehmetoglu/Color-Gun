@@ -9,7 +9,7 @@ public class NPCMovementController : MonoBehaviour
     private NavMeshAgent _agent;
     private Transform _targetTransform;
     private NPCEvents _npcEvents;
-    private float _movementSpeed=0;
+    private float _movementSpeed=3.5F;
     private NPCController _npcController;
 
     // Start is called before the first frame update

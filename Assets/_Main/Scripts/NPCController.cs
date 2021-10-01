@@ -22,13 +22,19 @@ public class NPCController : MonoBehaviour
         _targetTransform = DummyPlayer.Instance.transform;
         _npcEvents = GetComponent<NPCEvents>();
         _npcEvents.Death += OnDeathPart;
+        
+        for (int i = 0; i < _colors.Count; i++)
+        {
+            _colors[i] = new Material(_colors[i]);
+        }
+        
         Material[] c = new[]
         {
             _colors[UnityEngine.Random.Range(0, _colors.Count)], _colors[UnityEngine.Random.Range(0, _colors.Count)]
             , _colors[UnityEngine.Random.Range(0, _colors.Count)], _colors[UnityEngine.Random.Range(0, _colors.Count)]
             , _colors[UnityEngine.Random.Range(0, _colors.Count)]
         };
-        
+
         for (int i = 0; i < 2; i++)
         {
             _eyes[i].material = c[i];

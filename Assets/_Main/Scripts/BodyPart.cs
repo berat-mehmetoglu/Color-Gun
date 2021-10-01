@@ -33,6 +33,10 @@ public class BodyPart : MonoBehaviour
                 {
                     _npcEvents.InvokeNPCDeath();
                     _deathPart = true;
+                    VARIABLE.enabled = false;
+                    Color c = Color.black;
+                    c.a = 0;
+                    _rend.materials[_konum].color = c;
                     break;
                 }
             }

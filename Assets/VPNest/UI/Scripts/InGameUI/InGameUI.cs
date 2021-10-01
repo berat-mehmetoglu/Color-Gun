@@ -66,15 +66,15 @@ namespace VP.Nest.UI.InGame
 			tapToStartEventTrigger.gameObject.SetActive(true);
 		}
 
-		private void Update()
-		{
-#if UNITY_EDITOR
-			if (Input.GetKeyDown(KeyCode.S))
-				SuccessGame();
-			if (Input.GetKeyDown(KeyCode.F))
-				FailGame();
-#endif
-		}
+// 		private void Update()
+// 		{
+// #if UNITY_EDITOR
+// 			if (Input.GetKeyDown(KeyCode.S))
+// 				SuccessGame();
+// 			if (Input.GetKeyDown(KeyCode.F))
+// 				FailGame();
+// #endif
+// 		}
 
 
 		private void TapToContinue()

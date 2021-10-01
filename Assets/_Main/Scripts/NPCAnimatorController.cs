@@ -24,6 +24,7 @@ public class NPCAnimatorController : MonoBehaviour
     
     void OnDeath()
     {
+        _anim.enabled = false;
         _anim.SetTrigger("Death");
     }
     

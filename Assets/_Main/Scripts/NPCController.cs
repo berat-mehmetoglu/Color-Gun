@@ -2,20 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class NPCController : MonoBehaviour
 {
+    [SerializeField] public List<Renderer> _eyes;
+    [SerializeField] private List<Material> _colors;
+    public Dictionary<Material, MortyColor> _mortyDic = new Dictionary<Material, MortyColor>();
     private Transform _targetTransform;
     private NPCEvents _npcEvents;
     public MortyState _mortyState;
     private int _deathPartCount=0;
+    private Renderer _npcRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        _npcRenderer = GetComponentInChildren<NPCRenderer>().GetComponent<Renderer>();
         _targetTransform = DummyPlayer.Instance.transform;
         _npcEvents = GetComponent<NPCEvents>();
         _npcEvents.Death += OnDeathPart;
+        Material[] c = new[]
+        {
+            _colors[UnityEngine.Random.Range(0, _colors.Count)], _colors[UnityEngine.Random.Range(0, _colors.Count)]
+            , _colors[UnityEngine.Random.Range(0, _colors.Count)], _colors[UnityEngine.Random.Range(0, _colors.Count)]
+            , _colors[UnityEngine.Random.Range(0, _colors.Count)]
+        };
+        
+        for (int i = 0; i < 2; i++)
+        {
+            _eyes[i].material = c[i];
+        }
+
+        _npcRenderer.materials = c;
+        
+        _mortyDic.Add(_colors[0], MortyColor.Red);
+        _mortyDic.Add(_colors[1], MortyColor.Blue);
+        _mortyDic.Add(_colors[2], MortyColor.Orange);
+        _mortyDic.Add(_colors[3], MortyColor.Yellow);
+        _mortyDic.Add(_colors[4], MortyColor.Purple);
     }
 
     private void OnTriggerEnter(Collider other)

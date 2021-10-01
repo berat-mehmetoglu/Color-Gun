@@ -4,20 +4,38 @@ using UnityEngine;
 
 public class BodyPart : MonoBehaviour
 {
-    [SerializeField] private MortyColor _color;
+    [SerializeField] private Renderer _rend;
+    [SerializeField] private int _konum;
+    
     private NPCEvents _npcEvents;
+    private NPCController _controller;
 
+    private bool _deathPart=false;
     // Start is called before the first frame update
     void Start()
     {
         _npcEvents = GetComponentInParent<NPCEvents>();
+        _controller = GetComponentInParent<NPCController>();
     }
 
     public void OnShoot(MortyColor color)
     {
-        if (color == _color)
+        if (_deathPart)
         {
-            _npcEvents.InvokeNPCDeath();
+            return;
+        }
+        
+        if (color == _controller._mortyDic[_rend.materials[_konum]])
+        {
+            foreach (var VARIABLE in _controller._eyes)
+            {
+                if (color == _controller._mortyDic[VARIABLE.material])
+                {
+                    _npcEvents.InvokeNPCDeath();
+                    _deathPart = true;
+                    break;
+                }
+            }
         }
     }
 }
@@ -28,5 +46,5 @@ public enum MortyColor
     Yellow,
     Blue,
     Orange,
-    Purple,
+    Purple
 }

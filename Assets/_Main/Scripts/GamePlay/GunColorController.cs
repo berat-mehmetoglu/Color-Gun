@@ -11,7 +11,7 @@ public class GunColorController : MonoBehaviour
     private void Awake()
     {
         _gun = GetComponent<Gun>();
-        _gun.ColorType = ColorType.Red;
+        _gun.MortyColor = MortyColor.Red;
         _textMeshPros[0].color = Color.green;
     }
 
@@ -19,7 +19,7 @@ public class GunColorController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _gun.ColorType = ColorType.Red;
+            _gun.MortyColor = MortyColor.Red;
             _textMeshPros[0].color = Color.green;
             _textMeshPros[1].color = Color.white;
             _textMeshPros[2].color = Color.white;
@@ -28,7 +28,7 @@ public class GunColorController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            _gun.ColorType = ColorType.Yellow;
+            _gun.MortyColor = MortyColor.Yellow;
             _textMeshPros[0].color = Color.white;
             _textMeshPros[1].color = Color.green;
             _textMeshPros[2].color = Color.white;
@@ -37,7 +37,7 @@ public class GunColorController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            _gun.ColorType = ColorType.Blue;
+            _gun.MortyColor = MortyColor.Blue;
             _textMeshPros[0].color = Color.white;
             _textMeshPros[1].color = Color.white;
             _textMeshPros[2].color = Color.green;
@@ -46,7 +46,7 @@ public class GunColorController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            _gun.ColorType = ColorType.Orange;
+            _gun.MortyColor = MortyColor.Orange;
             _textMeshPros[0].color = Color.white;
             _textMeshPros[1].color = Color.white;
             _textMeshPros[2].color = Color.white;
@@ -55,7 +55,7 @@ public class GunColorController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            _gun.ColorType = ColorType.Purple;
+            _gun.MortyColor = MortyColor.Purple;
             _textMeshPros[0].color = Color.white;
             _textMeshPros[1].color = Color.white;
             _textMeshPros[2].color = Color.white;

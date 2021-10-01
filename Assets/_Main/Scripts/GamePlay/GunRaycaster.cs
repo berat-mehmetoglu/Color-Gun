@@ -99,26 +99,26 @@ namespace _Main.Scripts.GamePlay
             CameraShake.Instance.Shake(0.5f,0.2f);
             GunAnimation.Instance.DoAnimation();
             
-            switch (_gun.ColorType)
+            switch (_gun.MortyColor)
             {
-                case ColorType.Red:
+                case MortyColor.Red:
                     var obj1= AmmoCreator.Instance.CreateRed();
                     obj1.GetComponent<Rigidbody>().velocity = direction * 100f;
                     break;
-                case ColorType.Yellow:
+                case MortyColor.Yellow:
                     var obj2 = AmmoCreator.Instance.CreateYellow();
                     obj2.GetComponent<Rigidbody>().velocity = direction * 100f;
                     break;
-                case ColorType.Blue:
+                case MortyColor.Blue:
                     var obj3 = AmmoCreator.Instance.CreateBlue();
                     obj3.GetComponent<Rigidbody>().velocity = direction * 100f;
                   
                     break;
-                case ColorType.Orange:
+                case MortyColor.Orange:
                     var obj4 = AmmoCreator.Instance.CreateOrange();
                     obj4.GetComponent<Rigidbody>().velocity = direction * 100f;
                     break;
-                case ColorType.Purple:
+                case MortyColor.Purple:
                     var obj5 = AmmoCreator.Instance.CreatePurple();
                     obj5.GetComponent<Rigidbody>().velocity = direction * 100f;
                     break;

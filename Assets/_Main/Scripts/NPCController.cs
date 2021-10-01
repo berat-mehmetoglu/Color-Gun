@@ -9,7 +9,7 @@ public class NPCController : MonoBehaviour
 {
     [SerializeField] public List<Renderer> _eyes;
     [SerializeField] private List<Material> _colors;
-    public Dictionary<Material, MortyColor> _mortyDic = new Dictionary<Material, MortyColor>();
+    public Dictionary<float, MortyColor> _mortyDic = new Dictionary<float, MortyColor>();
     private Transform _targetTransform;
     private NPCEvents _npcEvents;
     public MortyState _mortyState;
@@ -22,7 +22,7 @@ public class NPCController : MonoBehaviour
         _npcRenderer = GetComponentInChildren<NPCRenderer>().GetComponent<Renderer>();
         _targetTransform = Gun.Instance.transform;
         _npcEvents = GetComponent<NPCEvents>();
-        _npcEvents.Death += OnDeathPart;
+        _npcEvents.NPCDeath += OnDeathPart;
         
         for (int i = 0; i < _colors.Count; i++)
         {
@@ -43,13 +43,12 @@ public class NPCController : MonoBehaviour
 
         _npcRenderer.materials = c;
         
-        _mortyDic.Add(_colors[0], MortyColor.Red);
-        _mortyDic.Add(_colors[1], MortyColor.Blue);
-        _mortyDic.Add(_colors[2], MortyColor.Orange);
-        _mortyDic.Add(_colors[3], MortyColor.Yellow);
-        _mortyDic.Add(_colors[4], MortyColor.Purple);
-        
-        print(_mortyDic[_npcRenderer.materials[2]]);
+        _mortyDic.Add(255, MortyColor.Red);
+        _mortyDic.Add(0, MortyColor.Blue);
+        _mortyDic.Add(250, MortyColor.Orange);
+        _mortyDic.Add(245, MortyColor.Yellow);
+        _mortyDic.Add(230, MortyColor.Purple);
+        print(_mortyDic[245]);
     }
 
     private void OnTriggerEnter(Collider other)

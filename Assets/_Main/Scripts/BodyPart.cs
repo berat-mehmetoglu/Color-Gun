@@ -16,33 +16,16 @@ public class BodyPart : MonoBehaviour
     {
         _npcEvents = GetComponentInParent<NPCEvents>();
         _controller = GetComponentInParent<NPCController>();
+        print(_controller);
         _rend = _controller.GetComponentInChildren<NPCRenderer>().GetComponent<Renderer>();
     }
 
     public void OnShoot(MortyColor color)
     {
-        print("hi");
-        if (_deathPart)
-        {
-            return;
-        }
-        
-        if (color == _controller._mortyDic[_rend.materials[_konum]])
-        {
-            foreach (var VARIABLE in _controller._eyes)
-            {
-                if (color == _controller._mortyDic[VARIABLE.material])
-                {
-                    _npcEvents.InvokeNPCDeath();
-                    _deathPart = true;
-                    VARIABLE.enabled = false;
-                    Color c = Color.black;
-                    c.a = 0;
-                    _rend.materials[_konum].color = c;
-                    break;
-                }
-            }
-        }
+        _npcEvents.InvokeNPCDeath();
+        Color c = Color.black;
+        c.a = 0;
+        _rend.materials[_konum].color = c;
     }
 }
 
@@ -54,3 +37,25 @@ public enum MortyColor
     Orange,
     Purple
 }
+
+/*
+ *if (color == _controller._mortyDic[(int)_rend.materials[_konum].color.r*255])
+        {
+            foreach (var VARIABLE in _controller._eyes)
+            {
+                print(color);
+                print(_controller._mortyDic[(int)VARIABLE.material.color.r*255]);
+                if (color == _controller._mortyDic[(int)VARIABLE.material.color.r*255])
+                {
+                    _npcEvents.InvokeNPCDeath();
+                    _deathPart = true;
+                    VARIABLE.enabled = false;
+                    Color c = Color.black;
+                    c.a = 0;
+                    _rend.materials[_konum].color = c;
+                    print("deatgh");
+                    break;
+                }
+            }
+        }
+*/

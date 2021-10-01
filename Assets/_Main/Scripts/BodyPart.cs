@@ -16,10 +16,12 @@ public class BodyPart : MonoBehaviour
     {
         _npcEvents = GetComponentInParent<NPCEvents>();
         _controller = GetComponentInParent<NPCController>();
+        _rend = _controller.GetComponentInChildren<NPCRenderer>().GetComponent<Renderer>();
     }
 
     public void OnShoot(MortyColor color)
     {
+        print("hi");
         if (_deathPart)
         {
             return;

@@ -14,7 +14,7 @@ public class NPCController : MonoBehaviour
     private NPCEvents _npcEvents;
     public MortyState _mortyState;
     private int _deathPartCount=0;
-    private Renderer _npcRenderer;
+    public Renderer _npcRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +48,12 @@ public class NPCController : MonoBehaviour
         _mortyDic.Add(_colors[2], MortyColor.Orange);
         _mortyDic.Add(_colors[3], MortyColor.Yellow);
         _mortyDic.Add(_colors[4], MortyColor.Purple);
+        
+        print(_mortyDic[_npcRenderer.materials[2]]);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        print(other.name);
         if (other.TryGetComponent(out Gun _))
         {
             _npcEvents.InvokeFight();

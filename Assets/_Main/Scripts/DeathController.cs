@@ -22,7 +22,7 @@ public class DeathController : MonoBehaviour
 
         foreach (var VARIABLE in _colliders)
         {
-            VARIABLE.isTrigger = true;
+            VARIABLE.isTrigger = false;
         }
         
         foreach (var VARIABLE in _rigidbodies)

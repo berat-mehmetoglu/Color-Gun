@@ -18,10 +18,13 @@ namespace _Main.Scripts.GamePlay
         private bool _haveRay;
 
         private Gun _gun;
-
+        private LayerMask _layerMask;
+        
         private void Awake()
         {
             _gun = GetComponent<Gun>();
+            
+            _layerMask = LayerMask.GetMask("Morty");
         }
 
         private void OnEnable()
@@ -76,7 +79,7 @@ namespace _Main.Scripts.GamePlay
 
             var ray = new Ray (rayTarget.position, rayTarget.forward);
 
-            if (Physics.Raycast (ray, out var hit,Mathf.Infinity))
+            if (Physics.Raycast (ray, out var hit,Mathf.Infinity,_layerMask))
             {
                 // if (hit.rigidbody.TryGetComponent(out Morty))
                 // {
@@ -88,6 +91,7 @@ namespace _Main.Scripts.GamePlay
                     //Execute morty collider
                     hit.rigidbody.AddForce(-hit.normal * 100f);
                     bd.OnShoot(_gun.MortyColor);
+                    Debug.Log("ASDAS");
                 }
                 
             }

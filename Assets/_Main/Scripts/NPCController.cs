@@ -48,7 +48,6 @@ public class NPCController : MonoBehaviour
         _mortyDic.Add(250, MortyColor.Orange);
         _mortyDic.Add(245, MortyColor.Yellow);
         _mortyDic.Add(230, MortyColor.Purple);
-        print(_mortyDic[245]);
     }
 
     private void OnTriggerEnter(Collider other)
